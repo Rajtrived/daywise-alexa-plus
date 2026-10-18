@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DayWise helps students plan their day, prioritize tasks, and track progress.">
+  <title>DayWise — Smart Daily Planner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">D</span>
+      DayWise
+    </a>
+    <span class="status"><span class="dot"></span> Your day, organized</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <p class="eyebrow">YOUR PERSONAL STUDY PLANNER</p>
+      <h1>Make today <span>count.</span></h1>
+      <p>Small steps. Clear priorities. Better days.</p>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <span>Total tasks</span>
+        <strong id="totalCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Completed</span>
+        <strong id="completedCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Study time</span>
+        <strong id="studyTime">0h</strong>
+      </article>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">GET STARTED</p>
+            <h2>Plan your tasks</h2>
+          </div>
+        </div>
+
+        <form id="taskForm">
+          <label for="taskInput">What do you need to do?</label>
+          <input id="taskInput" type="text"
+            placeholder="e.g. Revise mathematics" required maxlength="120">
+
+          <div class="form-row">
+            <div>
+              <label for="minutesInput">Time (minutes)</label>
+              <input id="minutesInput" type="number"
+                min="5" max="600" value="30" required>
+            </div>
+            <div>
+              <label for="priorityInput">Priority</label>
+              <select id="priorityInput">
+                <option value="high">High</option>
+                <option value="medium" selected>Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="primary-btn" type="submit">+ Add task</button>
+        </form>
+
+        <div class="divider"></div>
+
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR TO-DO LIST</p>
+            <h2>Today's focus</h2>
+          </div>
+          <button id="planBtn" class="secondary-btn" type="button">
+            Build my plan
+          </button>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+        <p id="emptyMessage" class="empty-message">
+          Your next achievement starts with one task.
+        </p>
+        <div id="planResult" class="plan-result" hidden></div>
+      </section>
+
+      <aside class="panel assistant-panel">
+        <div class="assistant-title">
+          <div class="assistant-avatar">✦</div>
+          <div>
+            <h2>DayWise Assistant</h2>
+            <p><span class="dot"></span> Planning mode</p>
+          </div>
+        </div>
+
+        <div class="welcome-message">
+          Hi! I'm your DayWise planning assistant. Tell me what you need
+          to finish, or ask me to help organize your tasks.
+        </div>
+
+        <div id="chatMessages" class="chat-messages"
+          aria-live="polite"></div>
+
+        <form id="chatForm" class="chat-form">
+          <label class="visually-hidden" for="chatInput">
+            Ask DayWise
+          </label>
+          <input id="chatInput" type="text"
+            placeholder="Ask me to plan your day..." required maxlength="300">
+          <button type="submit" aria-label="Send message">➤</button>
+        </form>
+
+        <p class="hint">Try: “Plan my day” or “How much time do I need?”</p>
+        <p class="disclaimer">
+          Prototype assistant: responses use built-in planning logic.
+        </p>
+      </aside>
+    </div>
+
+    <footer>
+      <span>DayWise © 2026</span>
+      <span>Designed for more focused days.</span>
+    </footer>
+  </main>
+</body>
+</html>
